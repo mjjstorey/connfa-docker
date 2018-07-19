@@ -17,6 +17,8 @@ Derived from an original [Gist](https://gist.github.com/evelyne24/dc2a5ae271d264
 
 ### Run the code you need
 
-`./install.sh` -> Builds the docker image, starts it and makes it ready for use at http://localhost
-`./reinstall.sh` -> Destroys ALL your docker containers and recreates the connfa container. **CAREFUL IF YOU HAVE OTHER DOCKER CONTAINERS RUNNING!**.
-`./destroy_everything_docker.sh` -> Destroys ALL your docker containers and images. Used for debugging purposes mostly when building this image. **CAREFUL IF YOU HAVE OTHER DOCKER CONTAINERS RUNNING!**.
+ - `./install.sh` -> Builds the docker image, starts it and makes it ready for use at http://localhost
+
+ - `./reinstall.sh` -> Destroys ALL your docker containers and recreates the connfa container. **CAREFUL IF YOU HAVE OTHER DOCKER CONTAINERS RUNNING!**.
+
+ - `./destroy_everything_docker.sh` -> Destroys ALL your docker containers and images. Used for debugging purposes mostly when building this image. **CAREFUL IF YOU HAVE OTHER DOCKER CONTAINERS RUNNING!**.
