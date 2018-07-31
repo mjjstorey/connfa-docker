@@ -22,6 +22,7 @@ RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install PHP and laravel dependencies
+RUN apt-get update
 RUN apt-get install -y mysql-server-5.7 mysql-client-5.7
 
 # Change this timezone if you need 
