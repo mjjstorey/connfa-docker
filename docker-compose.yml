@@ -18,10 +18,10 @@ services:
     links:
     - mysql_server
     env_file:
-    - ".env"
+    - "joaorosilva-connfa/.env"
   migrator:
      image: connfa-migrator-local
      links:
      - mysql_server
      env_file:
-     - ".env"
+     - "joaorosilva-connfa/.env"
