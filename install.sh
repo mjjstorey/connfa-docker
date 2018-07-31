@@ -8,7 +8,7 @@ if cd connfa;
 then 
 	git pull; 
 else 
-	git export https://github.com/lemberg/connfa-integration-server.git connfa
+	git clone https://github.com/lemberg/connfa-integration-server.git connfa
 	cd connfa
 fi
 
