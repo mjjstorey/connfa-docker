@@ -13,7 +13,7 @@ EXPOSE 8000
 #install tzdata unattended
 ## preesed tzdata, update package index, upgrade packages and install needed software
 RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
-    echo "tzdata tzdata/Zones/Europe select Lisbon" >> /tmp/preseed.txt; \
+    echo "tzdata tzdata/Zones/Europe select Warsaw" >> /tmp/preseed.txt; \
     debconf-set-selections /tmp/preseed.txt && \
     apt-get update && \
     apt-get install -y tzdata
@@ -47,7 +47,7 @@ WORKDIR $INSTALL_DIR
 RUN rm -rf ./app ./vendor ./public ./config ./Parser ./resources
 
 #copy cloned app
-ADD ./connfa $INSTALL_DIR
+#ADD ./connfa $INSTALL_DIR
 COPY .env $INSTALL_DIR
 
 # install dependencies
