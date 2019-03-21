@@ -27,7 +27,7 @@ RUN apt-get install -y mysql-server-5.7 mysql-client-5.7
 
 # Change this timezone if you need 
 RUN unlink /etc/localtime
-RUN echo "Europe/Lisbon" > /etc/timezone 
+RUN echo "Europe/Warsaw" > /etc/timezone 
 
 #Now we can install the packages unattended
 RUN dpkg-reconfigure -f noninteractive tzdata
