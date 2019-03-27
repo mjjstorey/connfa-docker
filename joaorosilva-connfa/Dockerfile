@@ -48,7 +48,8 @@ RUN rm -rf ./app ./vendor ./public ./config ./Parser ./resources
 
 #copy cloned app
 #ADD ./connfa $INSTALL_DIR
-ADD git clone https://github.com/lemberg/connfa-integration-server.git $INSTALL_DIR
+# Clone the conf files into the docker container
+RUN git clone https://github.com/lemberg/connfa-integration-server.git $INSTALL_DIR
 COPY .env $INSTALL_DIR
 
 # install dependencies
