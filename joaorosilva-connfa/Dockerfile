@@ -51,9 +51,9 @@ RUN rm -rf ./app ./vendor ./public ./config ./Parser ./resources
 # Clone the conf files into the docker container
 # COPY git clone https://github.com/lemberg/connfa-integration-server.git $INSTALL_DIR
 # RUN curl -SL https://github.com/lemberg/connfa-integration-server/archive/master.zip | tar -xJC $INSTALL_DIR
-ADD https://github.com/lemberg/connfa-integration-server/archive/master.zip /tmp
-RUN unzip /tmp/master.zip $INSTALL_DIR \
- && rm /tmp/master.zip
+ADD https://github.com/lemberg/connfa-integration-server/archive/master.zip $INSTALL_DIR
+#RUN unzip /tmp/master.zip $INSTALL_DIR \
+# && rm /tmp/master.zip
  
 COPY .env $INSTALL_DIR
 
