@@ -58,12 +58,16 @@ RUN unzip /tmp/master.zip connfa-integration-server-master/* -d $INSTALL_DIR \
  && rm /tmp/master.zip
  
 COPY .env $INSTALL_DIR
+COPY run.sh $INSTALL_DIR
 
 # install dependencies
 RUN composer update
 
 # set permissions
 RUN chmod a+rw $INSTALL_DIR
+RUN chmod +x $INSTALL_DIR/run.sh
 
 # Start app
-ENTRYPOINT php artisan serve --host=0.0.0.0 --port=8000
+#ENTRYPOINT php artisan serve --host=0.0.0.0 --port=8000
+ENTRYPOINT "$INSTALL_DIR/run.sh" 
+#CMD ["/bin/sh", "/var/www/laravel/run.sh"]
