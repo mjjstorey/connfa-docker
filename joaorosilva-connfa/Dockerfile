@@ -52,7 +52,9 @@ RUN rm -rf ./app ./vendor ./public ./config ./Parser ./resources
 # COPY git clone https://github.com/lemberg/connfa-integration-server.git $INSTALL_DIR
 # RUN curl -SL https://github.com/lemberg/connfa-integration-server/archive/master.zip | tar -xJC $INSTALL_DIR
 ADD https://github.com/lemberg/connfa-integration-server/archive/master.zip /tmp
-RUN unzip -d $INSTALL_DIR /tmp/master.zip \
+RUN unzip /tmp/master.zip connfa-integration-server-master/* -d $INSTALL_DIR \
+ && mv $INSTALL_DIR/connfa-integration-server-master/* $INSTALL_DIR \
+ && rm -rf $INSTALL_DIR/connfa-integration-server-master \
  && rm /tmp/master.zip
  
 COPY .env $INSTALL_DIR
