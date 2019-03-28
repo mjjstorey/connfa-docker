@@ -31,10 +31,10 @@ RUN echo "Europe/Warsaw" > /etc/timezone
 
 #Now we can install the packages unattended
 RUN dpkg-reconfigure -f noninteractive tzdata
+RUN apt-get install -y curl unzip
 RUN apt-get install -y php php7.0-curl php7.0-mbstring php7.0-json php7.0-fpm php7.0-xmlrpc php7.0-soap php7.0-gd php7.0-xml php7.0-cli php7.0-zip php7.0-mysql
 
 #Install Composer
-
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
@@ -50,8 +50,11 @@ RUN rm -rf ./app ./vendor ./public ./config ./Parser ./resources
 #ADD ./connfa $INSTALL_DIR
 # Clone the conf files into the docker container
 # COPY git clone https://github.com/lemberg/connfa-integration-server.git $INSTALL_DIR
-RUN curl -SL http://example.com/big.tar.xz \
-    | tar -xJC $INSTALL_DIR
+# RUN curl -SL https://github.com/lemberg/connfa-integration-server/archive/master.zip | tar -xJC $INSTALL_DIR
+ADD https://github.com/lemberg/connfa-integration-server/archive/master.zip
+RUN unzip master.zip $INSTALL_DIR
+ && rm master.zip
+ 
 COPY .env $INSTALL_DIR
 
 # install dependencies
