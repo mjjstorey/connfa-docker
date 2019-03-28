@@ -28,3 +28,5 @@ php artisan password:change --name=admin --password=$CMS_ADMIN_PASS
 
 
 echo "default username for logging in at http://127.0.0.1:8000: admin@test.com. Password: $CMS_ADMIN_PASS"
+
+php artisan serve --host=$DB_HOST --port=8000
