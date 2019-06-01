@@ -19,6 +19,7 @@ until mysql --host=$DB_HOST --user=$DB_USERNAME --password=$DB_PASSWORD $DB_DATA
         echo "retries=$retries"
     fi
 done
+exit
 
 
 echo "Mysql is up - executing migrations"
