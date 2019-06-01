@@ -6,7 +6,7 @@ echo "Waiting for database to come up"
 retries=20
 
 
-until mysql --host=$DB_HOST --user=$DB_USERNAME --password=$DB_PASSWORD $DB_DATABASE; do
+until mysql --host=$DB_HOST --user=$DB_USERNAME --password=$DB_PASSWORD $DB_DATABASE -e exit 2>/dev/null; do
     echo "Mysql is unavailable - sleeping"
 	echo "Connfa default user is 'admin' and password is $CMS_ADMIN_PASS."
     sleep 3
@@ -19,7 +19,6 @@ until mysql --host=$DB_HOST --user=$DB_USERNAME --password=$DB_PASSWORD $DB_DATA
         echo "retries=$retries"
     fi
 done
-exit
 
 
 echo "Mysql is up - executing migrations"
